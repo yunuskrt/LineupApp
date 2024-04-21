@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lineup/util/colors.dart';
 import 'screens/home_screen.dart';
 import 'screens/game_screen.dart';
 import 'screens/page2_screen.dart';
 import 'screens/deneme_screen.dart';
+import 'package:lineup/components/lineup_title.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,30 +53,35 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Multi Page Apps'),
-      ),
+          backgroundColor: AppColors.primary,
+          centerTitle: true,
+          title: const Text(
+            'LINEUP',
+            style: TextStyle(
+              letterSpacing: 8,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
       body: _screens[_currentIndex],
       drawer: Drawer(
+        backgroundColor: AppColors.primary,
+        width: MediaQuery.of(context).size.width * 0.7,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              // decoration: BoxDecoration(
-              //   color: Colors.blue,
-              // ),
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(10, 15, 0, 0),
-                child: Text(
-                  'LINEUP',
-                  style: TextStyle(
-                    letterSpacing: 8,
-                    fontSize: 24,
-                  ),
-                ),
+              decoration: BoxDecoration(
+                gradient: AppColors.primaryGradient,
               ),
+              padding: EdgeInsets.only(left: 10),
+              child: LineupTitle(),
             ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Home'),
+              selectedTileColor: AppColors.tertiaryDark,
+              selectedColor: AppColors.tertiaryLight,
               selected: _currentIndex == 0,
               onTap: () {
                 _onTabTapped(0);
@@ -82,7 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Game'),
+              selectedTileColor: AppColors.tertiaryDark,
+              selectedColor: AppColors.tertiaryLight,
               selected: _currentIndex == 1,
               onTap: () {
                 _onTabTapped(1);
@@ -90,7 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Page 2'),
+              selectedTileColor: AppColors.tertiaryDark,
+              selectedColor: AppColors.tertiaryLight,
               selected: _currentIndex == 2,
               onTap: () {
                 _onTabTapped(2);
@@ -98,7 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Deneme Page'),
+              selectedTileColor: AppColors.tertiaryDark,
+              selectedColor: AppColors.tertiaryLight,
               selected: _currentIndex == 3,
               onTap: () {
                 _onTabTapped(3);
@@ -108,24 +124,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _currentIndex,
-      //   onTap: _onTabTapped,
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.pageview),
-      //       label: 'Page 1',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.pageview),
-      //       label: 'Page 2',
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

@@ -1,7 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:lineup/components/guess_input.dart';
+import 'package:lineup/components/quit_game_alert.dart';
+import 'package:lineup/util/colors.dart';
+import 'package:lineup/components/player.dart';
 
-class LineupPage extends StatelessWidget {
-  const LineupPage({super.key});
+class LineupPage extends StatefulWidget {
+  final List<Map<String, dynamic>> data;
+  const LineupPage({
+    super.key,
+    this.data = const [
+      {
+        'playerName': 'Livakovic',
+        'position': 'GK',
+        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/241447_01.jpg?v=2.125',
+      },
+      {
+        'playerName': 'Rodrigo Becao',
+        'position': 'LCB',
+        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/440397_01.jpg?v=2.125',
+      },
+      {
+        'playerName': 'A.Djiku',
+        'position': 'RCB',
+        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/234379_01.jpg?v=2.125',
+      }
+    ],
+  });
+
+  @override
+  State<LineupPage> createState() => _LineupPageState();
+}
+
+class _LineupPageState extends State<LineupPage> {
+  final TextEditingController _playerInputController = TextEditingController();
+
+  List<CustomPlayerWidget> _playerWidgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _playerWidgets = List.generate(
+      widget.data.length,
+      (index) {
+        final playerData = widget.data[index];
+        return CustomPlayerWidget(
+          playerName: playerData['playerName'],
+          position: playerData['position'],
+          playerUrl: playerData['playerUrl'],
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _playerInputController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,61 +67,65 @@ class LineupPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background.png'),
-            fit: BoxFit.cover,
-          ),
+              image: AssetImage('assets/background.png'),
+              fit: BoxFit.cover,
+              opacity: 0.8),
         ),
-        child: CustomPaint(
-          painter: SoccerPitchPainter(),
-          child: Container(),
+        child: Stack(children: _playerWidgets),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.danger,
+        foregroundColor: AppColors.primaryLight,
+        splashColor: AppColors.danger,
+        onPressed: () => _dialogBuilder(context),
+        child: const Icon(Icons.exit_to_app),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            Flexible(
+              child: GuessInput(controller: _playerInputController),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                String index = _playerInputController.text;
+                print(index);
+                _playerInputController.clear();
+                // trigger the player to show
+                // _playerWidgets[1].show();
+              },
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(AppColors.primary),
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(AppColors.primaryLight),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: const BorderSide(color: AppColors.primary))),
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.done,
+                  size: 40.0,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-class SoccerPitchPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = const Color.fromARGB(255, 124, 117, 46)
-      ..strokeWidth = 5.0
-      ..style = PaintingStyle.stroke;
-
-    final width = size.width;
-    final height = size.height;
-
-    const length = 25.0;
-
-    // Draw soccer pitch lines
-    canvas.drawRect(Rect.fromLTWH(0, 0, width, height), paint);
-
-    // Draw player positions (example)
-    canvas.drawCircle(Offset(width * 0.50, height * 0.92), length, paint);
-
-    canvas.drawCircle(Offset(width * 0.75, height * 0.80), length, paint);
-    canvas.drawCircle(Offset(width * 0.50, height * 0.80), length, paint);
-    canvas.drawCircle(Offset(width * 0.25, height * 0.80), length, paint);
-
-    canvas.drawCircle(Offset(width * 0.50, height * 0.57), length, paint);
-    canvas.drawCircle(Offset(width * 0.15, height * 0.50), length, paint);
-    canvas.drawCircle(Offset(width * 0.85, height * 0.50), length, paint);
-    canvas.drawCircle(Offset(width * 0.50, height * 0.43), length, paint);
-
-    canvas.drawCircle(Offset(width * 0.30, height * 0.23), length, paint);
-    canvas.drawCircle(Offset(width * 0.70, height * 0.23), length, paint);
-
-    canvas.drawCircle(Offset(width * 0.50, height * 0.11), length, paint);
-    // canvas.drawCircle(Offset(width * 0.50, height * 0.77), 20.0, paint);
-    // canvas.drawCircle(Offset(width * 0.50, height * 0.37), 20.0, paint);
-    // canvas.drawCircle(Offset(width * 0.50, height * 0.47), 20.0, paint);
-    // Add more player positions as needed
-
-    // You can also add text labels for player positions
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return const QuitGameDialog();
+    },
+  );
 }
