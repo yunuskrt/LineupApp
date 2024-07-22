@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/util/colors.dart';
 
 class QuitGameDialog extends StatelessWidget {
@@ -29,7 +30,8 @@ class QuitGameDialog extends StatelessWidget {
           ),
           child: const Text('Yes'),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushNamedAndRemoveUntil(
+                context, HomeScreen.routeName, (route) => false);
           },
         ),
       ],

@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/components/guess_input.dart';
-import 'package:lineup/components/quit_game_alert.dart';
+import 'package:lineup/widgets/guess_input.dart';
+import 'package:lineup/widgets/alerts/quit_game_alert.dart';
 import 'package:lineup/util/colors.dart';
-import 'package:lineup/components/player.dart';
+import 'package:lineup/widgets/player.dart';
 
-class LineupPage extends StatefulWidget {
-  final List<Map<String, dynamic>> data;
-  const LineupPage({
+class LineupScreen extends StatefulWidget {
+  static String routeName = '/lineup';
+  final List<Map<String, dynamic>> data = [
+    {
+      'playerName': 'Livakovic',
+      'position': 'GK',
+      'playerUrl': 'https://im.mackolik.com/img/Oyuncu/241447_01.jpg?v=2.125',
+    },
+    {
+      'playerName': 'Rodrigo Becao',
+      'position': 'LCB',
+      'playerUrl': 'https://im.mackolik.com/img/Oyuncu/440397_01.jpg?v=2.125',
+    },
+    {
+      'playerName': 'A.Djiku',
+      'position': 'RCB',
+      'playerUrl': 'https://im.mackolik.com/img/Oyuncu/234379_01.jpg?v=2.125',
+    }
+  ];
+  LineupScreen({
     super.key,
-    this.data = const [
-      {
-        'playerName': 'Livakovic',
-        'position': 'GK',
-        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/241447_01.jpg?v=2.125',
-      },
-      {
-        'playerName': 'Rodrigo Becao',
-        'position': 'LCB',
-        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/440397_01.jpg?v=2.125',
-      },
-      {
-        'playerName': 'A.Djiku',
-        'position': 'RCB',
-        'playerUrl': 'https://im.mackolik.com/img/Oyuncu/234379_01.jpg?v=2.125',
-      }
-    ],
   });
 
   @override
-  State<LineupPage> createState() => _LineupPageState();
+  State<LineupScreen> createState() => _LineupScreenState();
 }
 
-class _LineupPageState extends State<LineupPage> {
+class _LineupScreenState extends State<LineupScreen> {
   final TextEditingController _playerInputController = TextEditingController();
 
   List<CustomPlayerWidget> _playerWidgets = [];

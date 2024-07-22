@@ -1,47 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/components/game_mode_card.dart';
+import 'package:lineup/util/colors.dart';
+import 'package:lineup/views/home_view.dart';
+import 'package:lineup/views/profile_view.dart';
+import 'package:lineup/views/settings_view.dart';
+import 'package:lineup/widgets/lineup_title.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  static String routeName = '/home';
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeView(),
+    SettingsView(),
+    ProfileView(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final cardData = [
-      {
-        'svgPath': 'assets/singleplayer.svg',
-        'headerText': 'Single Player - Squad',
-        'subText': 'Guess the lineup of a selected match',
-      },
-      {
-        'svgPath': 'assets/multiplayer.svg',
-        'headerText': 'Multiplayer - Squad',
-        'subText':
-            'Play with other players online. Guess the lineup od a selected match',
-      },
-      {
-        'svgPath': 'assets/single-jersey.svg',
-        'headerText': 'Single Player - Player',
-        'subText': 'Guess the players of a given question',
-      },
-      {
-        'svgPath': 'assets/multi-jersey.svg',
-        'headerText': 'Multiplayer - Player',
-        'subText':
-            'Play with other players online. Guess the players of a given question',
-      },
-    ];
-    return ListView.separated(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      itemCount: cardData.length,
-      separatorBuilder: (BuildContext context, int index) =>
-          const SizedBox(height: 15),
-      itemBuilder: (BuildContext context, int index) {
-        return GameModeCard(
-          svgPath: cardData[index]['svgPath']!,
-          headerText: cardData[index]['headerText']!,
-          subText: cardData[index]['subText']!,
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+          title: const LineupTitle(), backgroundColor: AppColors.primary),
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // Fixed
+        backgroundColor: AppColors.primary,
+        selectedItemColor: AppColors.activeItem,
+        unselectedItemColor: AppColors.inactiveItem,
+
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }

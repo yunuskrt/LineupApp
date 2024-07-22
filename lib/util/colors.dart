@@ -21,10 +21,19 @@ class AppColors {
   static const Color warning = Color(0xFFF0AD4E);
   static const Color info = Color(0xFF5BC0DE);
 
+  static const Color activeItem = Color(0xFF121F1C);
+  static const Color inactiveItem = Color(0xB325584F);
+
   static const primaryGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [Color(0xFFA5DD9B), Color(0xFF1E453E)],
+  );
+
+  static const menuGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFFC5EBAA), Color(0xFFA5DD9B)],
   );
 }
 

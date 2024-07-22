@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/components/guess_input.dart';
-import 'package:lineup/components/quit_game_alert.dart';
+import 'package:lineup/widgets/guess_input.dart';
+import 'package:lineup/widgets/alerts/quit_game_alert.dart';
 import 'package:lineup/util/colors.dart';
 
-class GameScreen extends StatefulWidget {
-  const GameScreen({super.key});
+class PositionScreen extends StatefulWidget {
+  static String routeName = '/position';
+  const PositionScreen({super.key});
 
   @override
-  State<GameScreen> createState() => _LineupPageState();
+  State<PositionScreen> createState() => _LineupPageState();
 }
 
-class _LineupPageState extends State<GameScreen> {
+class _LineupPageState extends State<PositionScreen> {
   final TextEditingController _playerInputController = TextEditingController();
 
   @override
