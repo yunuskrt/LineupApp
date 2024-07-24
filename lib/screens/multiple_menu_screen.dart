@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lineup/screens/create_room_screen.dart';
+import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/util/colors.dart';
 import 'package:lineup/widgets/cards/pick_menu_card.dart';
 import 'package:lineup/widgets/lineup_title.dart';
@@ -24,7 +26,8 @@ class MultipleMenuScreen extends StatelessWidget {
                     icon: Icons.add_box,
                     text: 'Create Room',
                     onTapped: () {
-                      print('create room tapped');
+                      Navigator.pushNamedAndRemoveUntil(context,
+                          CreateRoomScreen.routeName, (route) => false);
                     },
                   ),
                 ),
@@ -33,7 +36,8 @@ class MultipleMenuScreen extends StatelessWidget {
                     icon: Icons.group_add,
                     text: 'Join Room',
                     onTapped: () {
-                      print('join room tapped');
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, JoinRoomScreen.routeName, (route) => false);
                     },
                   ),
                 ),
