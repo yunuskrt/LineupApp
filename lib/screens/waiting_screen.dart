@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lineup/util/avatars.dart';
-import 'package:lineup/widgets/player_avatar.dart';
+import 'package:lineup/widgets/avatar.dart';
 
 class WaitingScreen extends StatefulWidget {
   static String routeName = '/waiting';
@@ -45,8 +45,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: PlayerAvatar(
-        playerAvatarModel: getAvatar(_index),
+      child: Avatar(
+        avatarModel: getAvatar(_index),
       ),
     );
   }

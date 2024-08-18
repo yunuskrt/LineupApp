@@ -1,146 +1,146 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/models/player_avatar_model.dart';
+import 'package:lineup/models/avatar_model.dart';
 
-const List<PlayerAvatarModel> avatars = [
-  PlayerAvatarModel(
+const List<AvatarModel> avatars = [
+  AvatarModel(
     name: 'Roberto Baggio',
     color: Color.fromRGBO(92, 128, 148, 1),
     path: 'assets/avatars/baggio.png',
     id: 0,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'David Beckham',
     color: Color.fromRGBO(122, 82, 74, 1),
     path: 'assets/avatars/beckham.png',
     id: 1,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Roberto Carlos',
     color: Color.fromRGBO(82, 65, 27, 1),
     path: 'assets/avatars/carlos.png',
     id: 2,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Johan Cruyff',
     color: Color.fromRGBO(125, 99, 73, 1),
     path: 'assets/avatars/cruyff.png',
     id: 3,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Luis Figo',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/figo.png',
     id: 4,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Gennaro Gattuso',
     color: Color.fromRGBO(124, 95, 90, 1),
     path: 'assets/avatars/gattuso.png',
     id: 5,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Steven Gerrard',
     color: Color.fromRGBO(121, 81, 68, 1),
     path: 'assets/avatars/gerrard.png',
     id: 6,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Josep Guardiola',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/guardiola.png',
     id: 7,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Thierry Henry',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/henry.png',
     id: 8,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Frank Lampard',
     color: Color.fromRGBO(91, 98, 126, 1),
     path: 'assets/avatars/lampard.png',
     id: 9,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Diego Maradona',
     color: Color.fromRGBO(91, 111, 136, 1),
     path: 'assets/avatars/maradona.png',
     id: 10,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Ruud Van Nistelrooy',
     color: Color.fromRGBO(125, 99, 72, 1),
     path: 'assets/avatars/nistelrooy.png',
     id: 11,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Pele',
     color: Color.fromRGBO(121, 122, 77, 1),
     path: 'assets/avatars/pele.png',
     id: 12,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Alessandro Del Piero',
     color: Color.fromRGBO(91, 71, 27, 1),
     path: 'assets/avatars/piero.png',
     id: 13,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Andrea Pirlo',
     color: Color.fromRGBO(124, 95, 90, 1),
     path: 'assets/avatars/pirlo.png',
     id: 14,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Michel Platini',
     color: Color.fromRGBO(90, 98, 126, 1),
     path: 'assets/avatars/platini.png',
     id: 15,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Carles Puyol',
     color: Color.fromRGBO(94, 104, 47, 1),
     path: 'assets/avatars/puyol.png',
     id: 16,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Raul',
     color: Color.fromRGBO(90, 74, 30, 1),
     path: 'assets/avatars/raul.png',
     id: 17,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Ronaldinho',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/ronaldinho.png',
     id: 18,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Paul Scholes',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/scholes.png',
     id: 19,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Socrates',
     color: Color.fromRGBO(120, 122, 77, 1),
     path: 'assets/avatars/socrates.png',
     id: 20,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Francesco Totti',
     color: Color.fromRGBO(113, 51, 25, 1),
     path: 'assets/avatars/totti.png',
     id: 21,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Xavi Hernandez',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/xavi.png',
     id: 22,
   ),
-  PlayerAvatarModel(
+  AvatarModel(
     name: 'Zinedine Zidane',
     color: Color.fromRGBO(91, 98, 126, 1),
     path: 'assets/avatars/zidane.png',
@@ -148,7 +148,7 @@ const List<PlayerAvatarModel> avatars = [
   ),
 ];
 
-PlayerAvatarModel getAvatar(int index) {
+AvatarModel getAvatar(int index) {
   return avatars[index];
 }
 
