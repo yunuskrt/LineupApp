@@ -30,6 +30,12 @@ class AppColors {
     colors: [Color(0xFFA5DD9B), Color(0xFF1E453E)],
   );
 
+  static const secondaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFFC5EBAA), Color(0xFF455B55)],
+  );
+
   static const menuGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

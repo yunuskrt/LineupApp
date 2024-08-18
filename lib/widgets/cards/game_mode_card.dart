@@ -7,7 +7,7 @@ class GameModeCard extends StatelessWidget {
   final String svgPath;
   final String headerText;
   final String subText;
-
+  final LinearGradient gradientColor;
   final VoidCallback onTapped;
 
   const GameModeCard(
@@ -15,6 +15,7 @@ class GameModeCard extends StatelessWidget {
       required this.svgPath,
       required this.headerText,
       required this.subText,
+      this.gradientColor = AppColors.primaryGradient,
       required this.onTapped});
 
   @override
@@ -30,8 +31,7 @@ class GameModeCard extends StatelessWidget {
               splashColor: AppColors.tertiaryDark,
               child: Container(
                 clipBehavior: Clip.antiAlias,
-                decoration:
-                    const BoxDecoration(gradient: AppColors.primaryGradient),
+                decoration: BoxDecoration(gradient: gradientColor),
                 child: Card(
                   elevation: 0,
                   color: Colors.transparent,

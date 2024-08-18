@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lineup/screens/create_room_screen.dart';
 import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/util/colors.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/models/player_avatar_model.dart';
-import 'package:lineup/util/colors.dart';
 
 class PlayerAvatar extends StatelessWidget {
   final PlayerAvatarModel playerAvatarModel;

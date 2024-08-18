@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/lineup_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
+import 'package:lineup/util/colors.dart';
 import 'package:lineup/widgets/cards/game_mode_card.dart';
 
 class HomeView extends StatelessWidget {
@@ -27,6 +28,7 @@ class HomeView extends StatelessWidget {
             headerText: 'Multiplayer',
             subText:
                 'Play with other players online. Guess the lineup of a selected match',
+            gradientColor: AppColors.secondaryGradient,
             onTapped: () {
               Navigator.pushNamed(context, MultipleMenuScreen.routeName);
             },
