@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/models/avatar_model.dart';
+import 'package:lineup/models/avatar.dart';
 
-class Avatar extends StatelessWidget {
-  final AvatarModel avatarModel;
+class PlayerAvatar extends StatelessWidget {
+  final Avatar avatarModel;
   final double outerRadius;
   final double innerRadius;
-  const Avatar({
+  const PlayerAvatar({
     super.key,
     required this.avatarModel,
     this.outerRadius = .25,

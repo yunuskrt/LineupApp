@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class AvatarModel {
+class Avatar {
   final String name;
   final Color color;
   final String path;
   final int id;
 
-  const AvatarModel({
+  const Avatar({
     required this.name,
     required this.color,
     required this.path,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/resources/socket_methods.dart';
 import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/util/colors.dart';
 import 'package:lineup/widgets/header_text.dart';
@@ -16,14 +15,6 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
-  final SocketMethods _socketMethods = SocketMethods();
-
-  @override
-  void initState() {
-    super.initState();
-    _socketMethods.createRoomListener(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -53,7 +44,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             RoomButton(
               text: 'Create Room',
-              onTapped: () => _socketMethods.createRoom(),
+              onTapped: () => print('Create Room Btn Tapped'),
             ),
           ],
         ),

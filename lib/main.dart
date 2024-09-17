@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/create_room_screen.dart';
+import 'package:lineup/screens/game_screen.dart';
 import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/screens/lineup_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
-import 'package:lineup/screens/waiting_screen.dart';
+
 import 'package:lineup/util/colors.dart';
 import 'screens/position_screen.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         LineupScreen.routeName: (context) => LineupScreen(),
         MultipleMenuScreen.routeName: (context) => const MultipleMenuScreen(),
         PositionScreen.routeName: (context) => const PositionScreen(),
-        WaitingScreen.routeName: (context) => const WaitingScreen(),
+        GameScreen.routeName: (context) => const GameScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );

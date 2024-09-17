@@ -1,146 +1,146 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/models/avatar_model.dart';
+import 'package:lineup/models/avatar.dart';
 
-const List<AvatarModel> avatars = [
-  AvatarModel(
+const List<Avatar> avatars = [
+  Avatar(
     name: 'Roberto Baggio',
     color: Color.fromRGBO(92, 128, 148, 1),
     path: 'assets/avatars/baggio.png',
     id: 0,
   ),
-  AvatarModel(
+  Avatar(
     name: 'David Beckham',
     color: Color.fromRGBO(122, 82, 74, 1),
     path: 'assets/avatars/beckham.png',
     id: 1,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Roberto Carlos',
     color: Color.fromRGBO(82, 65, 27, 1),
     path: 'assets/avatars/carlos.png',
     id: 2,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Johan Cruyff',
     color: Color.fromRGBO(125, 99, 73, 1),
     path: 'assets/avatars/cruyff.png',
     id: 3,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Luis Figo',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/figo.png',
     id: 4,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Gennaro Gattuso',
     color: Color.fromRGBO(124, 95, 90, 1),
     path: 'assets/avatars/gattuso.png',
     id: 5,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Steven Gerrard',
     color: Color.fromRGBO(121, 81, 68, 1),
     path: 'assets/avatars/gerrard.png',
     id: 6,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Josep Guardiola',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/guardiola.png',
     id: 7,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Thierry Henry',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/henry.png',
     id: 8,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Frank Lampard',
     color: Color.fromRGBO(91, 98, 126, 1),
     path: 'assets/avatars/lampard.png',
     id: 9,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Diego Maradona',
     color: Color.fromRGBO(91, 111, 136, 1),
     path: 'assets/avatars/maradona.png',
     id: 10,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Ruud Van Nistelrooy',
     color: Color.fromRGBO(125, 99, 72, 1),
     path: 'assets/avatars/nistelrooy.png',
     id: 11,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Pele',
     color: Color.fromRGBO(121, 122, 77, 1),
     path: 'assets/avatars/pele.png',
     id: 12,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Alessandro Del Piero',
     color: Color.fromRGBO(91, 71, 27, 1),
     path: 'assets/avatars/piero.png',
     id: 13,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Andrea Pirlo',
     color: Color.fromRGBO(124, 95, 90, 1),
     path: 'assets/avatars/pirlo.png',
     id: 14,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Michel Platini',
     color: Color.fromRGBO(90, 98, 126, 1),
     path: 'assets/avatars/platini.png',
     id: 15,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Carles Puyol',
     color: Color.fromRGBO(94, 104, 47, 1),
     path: 'assets/avatars/puyol.png',
     id: 16,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Raul',
     color: Color.fromRGBO(90, 74, 30, 1),
     path: 'assets/avatars/raul.png',
     id: 17,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Ronaldinho',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/ronaldinho.png',
     id: 18,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Paul Scholes',
     color: Color.fromRGBO(122, 82, 75, 1),
     path: 'assets/avatars/scholes.png',
     id: 19,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Socrates',
     color: Color.fromRGBO(120, 122, 77, 1),
     path: 'assets/avatars/socrates.png',
     id: 20,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Francesco Totti',
     color: Color.fromRGBO(113, 51, 25, 1),
     path: 'assets/avatars/totti.png',
     id: 21,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Xavi Hernandez',
     color: Color.fromRGBO(94, 105, 47, 1),
     path: 'assets/avatars/xavi.png',
     id: 22,
   ),
-  AvatarModel(
+  Avatar(
     name: 'Zinedine Zidane',
     color: Color.fromRGBO(91, 98, 126, 1),
     path: 'assets/avatars/zidane.png',
@@ -148,7 +148,7 @@ const List<AvatarModel> avatars = [
   ),
 ];
 
-AvatarModel getAvatar(int index) {
+Avatar getAvatar(int index) {
   return avatars[index];
 }
 
