@@ -5,6 +5,7 @@ import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/screens/lineup_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
+import 'package:lineup/screens/single_filter_screen.dart';
 
 import 'package:lineup/util/colors.dart';
 import 'screens/position_screen.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         MultipleMenuScreen.routeName: (context) => const MultipleMenuScreen(),
         PositionScreen.routeName: (context) => const PositionScreen(),
         GameScreen.routeName: (context) => const GameScreen(),
+        SingleFilterScreen.routeName: (context) => const SingleFilterScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
