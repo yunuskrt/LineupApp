@@ -19,8 +19,7 @@ class HomeView extends StatelessWidget {
             headerText: 'Single Player',
             subText: 'Guess the lineup of a selected match',
             onTapped: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, SingleFilterScreen.routeName, (route) => false);
+              Navigator.pushNamed(context, SingleFilterScreen.routeName);
             },
           ),
           const SizedBox(height: 3),
