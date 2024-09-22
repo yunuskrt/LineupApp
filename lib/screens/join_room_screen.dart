@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/util/colors.dart';
+import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/header_text.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/widgets/room_button.dart';
@@ -75,16 +75,7 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.danger,
-        foregroundColor: AppColors.primaryLight,
-        splashColor: AppColors.danger,
-        onPressed: () {
-          Navigator.pushNamedAndRemoveUntil(
-              context, HomeScreen.routeName, (route) => false);
-        },
-        child: const Icon(Icons.exit_to_app),
-      ),
+      floatingActionButton: const ExitHomeButton(),
     );
   }
 }

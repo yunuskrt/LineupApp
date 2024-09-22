@@ -188,7 +188,8 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, MatchInfoScreen.routeName);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, MatchInfoScreen.routeName, (route) => false);
                 },
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(
