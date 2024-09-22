@@ -1,63 +1,28 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lineup/util/avatars.dart';
 import 'package:lineup/util/colors.dart';
-import 'package:lineup/widgets/player_avatar.dart';
+import 'package:lineup/widgets/avatar_loading.dart';
 
-class WaitingView extends StatefulWidget {
+class WaitingView extends StatelessWidget {
   final VoidCallback onExit;
-  const WaitingView({super.key, required this.onExit});
-
-  @override
-  State<WaitingView> createState() => _WaitingViewState();
-}
-
-class _WaitingViewState extends State<WaitingView> {
-  int _index = 0;
-  final int _modValue = getAvatarsLength();
-  Timer? _timer;
-
-  void _startTimer() {
-    _timer = Timer.periodic(
-      const Duration(seconds: 1),
-      (timer) {
-        setState(
-          () {
-            _index = (_index + 1) % _modValue;
-          },
-        );
-      },
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _startTimer();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
+  const WaitingView({
+    super.key,
+    required this.onExit,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            PlayerAvatar(
-              avatarModel: getAvatar(_index),
-            ),
-            const SizedBox(
+            AvatarLoading(),
+            SizedBox(
               height: 20,
             ),
-            const Text(
+            Text(
               '1/2 players joined',
               style: TextStyle(
                 color: AppColors.tertiaryDark,
@@ -65,7 +30,7 @@ class _WaitingViewState extends State<WaitingView> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
+            Text(
               'Waiting for other players...',
               style: TextStyle(
                 color: AppColors.tertiaryDark,
@@ -79,7 +44,7 @@ class _WaitingViewState extends State<WaitingView> {
         backgroundColor: AppColors.danger,
         foregroundColor: AppColors.primaryLight,
         splashColor: AppColors.danger,
-        onPressed: widget.onExit,
+        onPressed: onExit,
         child: const Icon(Icons.exit_to_app),
       ),
     );

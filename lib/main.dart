@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/create_room_screen.dart';
-import 'package:lineup/screens/game_screen.dart';
 import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/screens/lineup_screen.dart';
+import 'package:lineup/screens/match_info_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
 import 'package:lineup/screens/single_filter_screen.dart';
 
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
         LineupScreen.routeName: (context) => LineupScreen(),
         MultipleMenuScreen.routeName: (context) => const MultipleMenuScreen(),
         PositionScreen.routeName: (context) => const PositionScreen(),
-        GameScreen.routeName: (context) => const GameScreen(),
         SingleFilterScreen.routeName: (context) => const SingleFilterScreen(),
+        MatchInfoScreen.routeName: (context) => const MatchInfoScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );

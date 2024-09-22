@@ -3,20 +3,20 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:lineup/models/match.dart';
 import 'package:http/http.dart' as http;
+import 'package:lineup/widgets/avatar_loading.dart';
+import 'package:lineup/widgets/cards/match_info_card.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/util/colors.dart';
-import 'package:lineup/screens/home_screen.dart';
-import 'package:lineup/views/waiting_view.dart';
 
-class GameScreen extends StatefulWidget {
-  static String routeName = '/game';
-  const GameScreen({super.key});
+class MatchInfoScreen extends StatefulWidget {
+  static String routeName = '/match-info-screen';
+  const MatchInfoScreen({super.key});
 
   @override
-  State<GameScreen> createState() => _GameScreenState();
+  State<MatchInfoScreen> createState() => _MatchInfoScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _MatchInfoScreenState extends State<MatchInfoScreen> {
   late Future<Match> futureMatch;
   Future<Match> fetchMatch() async {
     final response =
@@ -28,6 +28,8 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
+  String selectedTeamKey = '';
+
   @override
   void initState() {
     super.initState();
@@ -38,24 +40,32 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const LineupTitle(), backgroundColor: AppColors.primary),
+        title: const LineupTitle(),
+        backgroundColor: AppColors.primary,
+      ),
       body: Center(
         child: FutureBuilder<Match>(
           future: futureMatch,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              print(snapshot.data!.toJson());
-              return Text(snapshot.data!.league);
+              return MatchInfoCard(
+                match: snapshot.data!,
+                homeSelected: selectedTeamKey == 'home',
+                awaySelected: selectedTeamKey == 'away',
+                onPlay: () {
+                  print('match will be saved to provider');
+                },
+                onTeamSelect: (team) {
+                  setState(() {
+                    selectedTeamKey = team == selectedTeamKey ? '' : team;
+                  });
+                },
+              );
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
 
-            return WaitingView(
-              onExit: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, HomeScreen.routeName, (route) => false);
-              },
-            );
+            return const AvatarLoading();
           },
         ),
       ),

@@ -15,96 +15,78 @@ class Filters {
       {
         'value': 'UEFA Europe League',
         'text': 'UEFA Europe League',
-        'icon': 'assets/europe_league.png',
       },
       {
         'value': 'Serie A',
         'text': 'Serie A',
-        'icon': 'assets/serie_a.png',
       },
       {
         'value': 'Bundesliga',
         'text': 'Bundesliga',
-        'icon': 'assets/bundesliga.png',
       },
       {
         'value': 'UEFA Champions League',
         'text': 'UEFA Champions League',
-        'icon': 'assets/champions_league.png',
       },
       {
         'value': 'World Cup',
         'text': 'World Cup',
-        'icon': 'assets/world_cup.png',
       },
       {
         'value': 'EURO',
         'text': 'EURO',
-        'icon': 'assets/euro.png',
       },
       {
         'value': 'Premier League',
         'text': 'Premier League',
-        'icon': 'assets/premier_league.png',
       },
       {
         'value': 'La Liga',
         'text': 'La Liga',
-        'icon': 'assets/la_liga.png',
       },
       {
         'value': 'Super Lig',
         'text': 'Super Lig',
-        'icon': 'assets/super_lig.png',
       },
     ],
     'league': [
       {
         'value': 'Serie A',
         'text': 'Serie A',
-        'icon': 'assets/serie_a.png',
       },
       {
         'value': 'Bundesliga',
         'text': 'Bundesliga',
-        'icon': 'assets/bundesliga.png',
       },
       {
         'value': 'Premier League',
         'text': 'Premier League',
-        'icon': 'assets/premier_league.png',
       },
       {
         'value': 'La Liga',
         'text': 'La Liga',
-        'icon': 'assets/la_liga.png',
       },
       {
         'value': 'Super Lig',
         'text': 'Super Lig',
-        'icon': 'assets/super_lig.png',
       },
     ],
     'tournament': [
       {
         'value': 'UEFA Europe League',
         'text': 'UEFA Europe League',
-        'icon': 'assets/europe_league.png',
       },
       {
         'value': 'UEFA Champions League',
         'text': 'UEFA Champions League',
-        'icon': 'assets/champions_league.png',
       },
       {
         'value': 'World Cup',
         'text': 'World Cup',
-        'icon': 'assets/world_cup.png',
       },
       {
         'value': 'EURO',
         'text': 'EURO',
-        'icon': 'assets/euro.png',
       },
     ],
   };

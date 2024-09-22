@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
       child: Column(
         children: [
           GameModeCard(
-            svgPath: 'assets/singleplayer.svg',
+            svgPath: 'assets/icons/singleplayer.svg',
             headerText: 'Single Player',
             subText: 'Guess the lineup of a selected match',
             onTapped: () {
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
           ),
           const SizedBox(height: 3),
           GameModeCard(
-            svgPath: 'assets/multiplayer.svg',
+            svgPath: 'assets/icons/multiplayer.svg',
             headerText: 'Multiplayer',
             subText:
                 'Play with other players online. Guess the lineup of a selected match',

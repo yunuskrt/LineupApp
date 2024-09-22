@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lineup/screens/match_info_screen.dart';
 import 'package:lineup/util/colors.dart';
 import 'package:lineup/util/filters.dart';
-import 'package:lineup/widgets/chip_choice_filter.dart';
-import 'package:lineup/widgets/chip_drop_filter.dart';
+import 'package:lineup/util/images.dart';
+import 'package:lineup/widgets/inputs/chip_choice_filter.dart';
+import 'package:lineup/widgets/inputs/chip_drop_filter.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/widgets/range_filter.dart';
 
@@ -27,11 +29,23 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
       Filters.rounds['league']!['min']!.toDouble(),
       Filters.rounds['league']!['max']!.toDouble());
 
+  // add icon property to leagueFilters
+  List<Map<String, String>> constructLeagueFilter(
+      List<Map<String, String>> leagueFilters) {
+    return leagueFilters.map((filter) {
+      return {
+        'value': filter['value']!,
+        'text': filter['text']!,
+        'icon': Images.leagues[filter['value']]!['icon']!,
+      };
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Map<String, String>> leagueFilters = _selectedTypeFilter == null
-        ? Filters.leagues['all']!
-        : Filters.leagues[_selectedTypeFilter]!;
+        ? constructLeagueFilter(Filters.leagues['all']!)
+        : constructLeagueFilter(Filters.leagues[_selectedTypeFilter]!);
 
     return Scaffold(
       appBar: AppBar(
@@ -174,7 +188,7 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  print('Apply Btn Tapped');
+                  Navigator.pushNamed(context, MatchInfoScreen.routeName);
                 },
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(

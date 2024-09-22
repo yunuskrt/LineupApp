@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/widgets/guess_input.dart';
+import 'package:lineup/widgets/inputs/guess_input.dart';
 import 'package:lineup/widgets/alerts/quit_game_alert.dart';
 import 'package:lineup/util/colors.dart';
 

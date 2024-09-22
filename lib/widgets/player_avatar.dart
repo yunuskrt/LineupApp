@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:lineup/models/avatar.dart';
 
 class PlayerAvatar extends StatelessWidget {
-  final Avatar avatarModel;
+  final Avatar avatar;
   final double outerRadius;
   final double innerRadius;
   const PlayerAvatar({
     super.key,
-    required this.avatarModel,
+    required this.avatar,
     this.outerRadius = .25,
     this.innerRadius = .225,
   });
@@ -17,11 +17,11 @@ class PlayerAvatar extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return CircleAvatar(
       radius: width * outerRadius,
-      backgroundColor: avatarModel.color,
+      backgroundColor: avatar.color,
       child: CircleAvatar(
-        backgroundImage: AssetImage(avatarModel.path),
+        backgroundImage: AssetImage(avatar.path),
         radius: width * innerRadius,
-        backgroundColor: avatarModel.color,
+        backgroundColor: avatar.color,
       ),
     );
   }
