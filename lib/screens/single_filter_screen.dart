@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:lineup/models/filter.dart';
+import 'package:lineup/providers/filter_provider.dart';
 import 'package:lineup/screens/match_info_screen.dart';
 import 'package:lineup/util/colors.dart';
 import 'package:lineup/util/filters.dart';
+import 'package:lineup/util/helpers.dart';
 import 'package:lineup/util/images.dart';
 import 'package:lineup/widgets/inputs/chip_choice_filter.dart';
 import 'package:lineup/widgets/inputs/chip_drop_filter.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/widgets/range_filter.dart';
+import 'package:provider/provider.dart';
 
 class SingleFilterScreen extends StatefulWidget {
   static String routeName = '/single-filter-screen';
@@ -21,11 +25,9 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
   final Set<String> _selectedLeagueFilters = <String>{};
   RangeValues _leagueSeasonRangeValues = RangeValues(
       Filters.seasons['league']!['min']!, Filters.seasons['league']!['max']!);
-  RangeValues _tournamentSeasonRangeValues = RangeValues(
-      Filters.seasons['tournament']!['min']!,
-      Filters.seasons['tournament']!['max']!);
+
   final Set<String> _selectedTournamentRounds = <String>{};
-  RangeValues _leagueRoundsRangeValues = RangeValues(
+  RangeValues _selectedLeagueRounds = RangeValues(
       Filters.rounds['league']!['min']!.toDouble(),
       Filters.rounds['league']!['max']!.toDouble());
 
@@ -99,32 +101,18 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
                         });
                       },
                     )
-                  : _selectedTypeFilter == 'tournament'
-                      ? RangeFilter(
-                          title: 'Season',
-                          minValue: Filters.seasons['tournament']!['min']!,
-                          maxValue: Filters.seasons['tournament']!['max']!,
-                          step: 2,
-                          rangeValues: _tournamentSeasonRangeValues,
-                          labelFormatter: (int value) => value.toString(),
-                          onSlided: (RangeValues values) {
-                            setState(() {
-                              _tournamentSeasonRangeValues = values;
-                            });
-                          },
-                        )
-                      : const SizedBox(),
+                  : const SizedBox(),
               const SizedBox(height: 10.0),
               _selectedTypeFilter == 'league'
                   ? RangeFilter(
                       title: 'Round',
                       minValue: Filters.rounds['league']!['min']!.toDouble(),
                       maxValue: Filters.rounds['league']!['max']!.toDouble(),
-                      rangeValues: _leagueRoundsRangeValues,
+                      rangeValues: _selectedLeagueRounds,
                       labelFormatter: (int value) => '$value.Matchday',
                       onSlided: (RangeValues values) {
                         setState(() {
-                          _leagueRoundsRangeValues = values;
+                          _selectedLeagueRounds = values;
                           _selectedTournamentRounds.clear();
                         });
                       },
@@ -188,6 +176,35 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
+                  String? season;
+                  String? round;
+                  if (_selectedTypeFilter == 'league') {
+                    int seasonInt =
+                        randomIntFromRange(_leagueSeasonRangeValues);
+                    season = '$seasonInt/${seasonInt + 1}';
+                    round =
+                        '${randomIntFromRange(_selectedLeagueRounds)}.Matchday';
+                  } else if (_selectedTypeFilter == 'tournament') {
+                    season = null;
+                    String? tournamentValue =
+                        randomStringFromSet(_selectedTournamentRounds);
+                    round = tournamentValue == null
+                        ? null
+                        : randomStringFromList(
+                            Filters.mapRounds[tournamentValue]!);
+                  } else {
+                    season = null;
+                    round = null;
+                  }
+                  Filter filter = Filter(
+                    type: _selectedTypeFilter,
+                    league: randomStringFromSet(_selectedLeagueFilters),
+                    season: season,
+                    round: round,
+                  );
+                  // print(_filter.toJson());
+                  Provider.of<FilterProvider>(context, listen: false)
+                      .setFilter(filter);
                   Navigator.pushNamedAndRemoveUntil(
                       context, MatchInfoScreen.routeName, (route) => false);
                 },

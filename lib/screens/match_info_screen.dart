@@ -3,11 +3,14 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:lineup/models/match.dart';
 import 'package:http/http.dart' as http;
+import 'package:lineup/providers/filter_provider.dart';
+import 'package:lineup/util/helpers.dart';
 import 'package:lineup/widgets/avatar_loading.dart';
 import 'package:lineup/widgets/cards/match_info_card.dart';
 import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/util/colors.dart';
+import 'package:provider/provider.dart';
 
 class MatchInfoScreen extends StatefulWidget {
   static String routeName = '/match-info-screen';
@@ -20,8 +23,10 @@ class MatchInfoScreen extends StatefulWidget {
 class _MatchInfoScreenState extends State<MatchInfoScreen> {
   late Future<Match> futureMatch;
   Future<Match> fetchMatch() async {
+    final query =
+        Provider.of<FilterProvider>(context, listen: false).getQuery();
     final response =
-        await http.get(Uri.parse('http://localhost:8080/api/v1/matches'));
+        await http.get(Uri.parse('http://localhost:8080/api/v1/matches$query'));
     if (response.statusCode == 200) {
       return Match.fromJson(jsonDecode(response.body));
     } else {
@@ -54,7 +59,13 @@ class _MatchInfoScreenState extends State<MatchInfoScreen> {
                 homeSelected: selectedTeamKey == 'home',
                 awaySelected: selectedTeamKey == 'away',
                 onPlay: () {
-                  print('match will be saved to provider');
+                  if (selectedTeamKey != 'home' && selectedTeamKey != 'away') {
+                    final snackBar =
+                        alertSnackBar('Pick a team to play!', 'error');
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  } else {
+                    print('match will be saved to provider');
+                  }
                 },
                 onTeamSelect: (team) {
                   setState(() {
