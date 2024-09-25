@@ -4,12 +4,12 @@ import 'dart:convert';
 import 'package:lineup/models/match.dart';
 import 'package:http/http.dart' as http;
 import 'package:lineup/providers/filter_provider.dart';
-import 'package:lineup/util/helpers.dart';
+import 'package:lineup/utils/helpers.dart';
 import 'package:lineup/widgets/avatar_loading.dart';
 import 'package:lineup/widgets/cards/match_info_card.dart';
 import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/lineup_title.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:provider/provider.dart';
 
 class MatchInfoScreen extends StatefulWidget {

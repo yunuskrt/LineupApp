@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:lineup/widgets/avatar_loading.dart';
 
 class WaitingView extends StatelessWidget {

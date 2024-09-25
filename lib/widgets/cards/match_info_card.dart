@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:lineup/util/colors.dart';
-import 'package:lineup/util/images.dart';
+import 'package:lineup/utils/colors.dart';
+import 'package:lineup/utils/images.dart';
 import 'package:lineup/widgets/header_text.dart';
 import 'package:lineup/models/match.dart';
 import 'package:lineup/widgets/match_detail_row.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/util/colors.dart';
-import 'package:lineup/util/positions.dart';
+import 'package:lineup/utils/colors.dart';
+import 'package:lineup/utils/positions.dart';
 
 class CustomPlayerWidget extends StatefulWidget {
   final String playerName;

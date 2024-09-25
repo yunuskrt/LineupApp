@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/header_text.dart';
 import 'package:lineup/widgets/lineup_title.dart';

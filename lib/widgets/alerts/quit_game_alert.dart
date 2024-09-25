@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/home_screen.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 
 class QuitGameDialog extends StatelessWidget {
   const QuitGameDialog({super.key});

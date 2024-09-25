@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/create_room_screen.dart';
 import 'package:lineup/screens/join_room_screen.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:lineup/widgets/cards/pick_menu_card.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 

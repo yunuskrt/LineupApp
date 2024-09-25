@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 
 int randomIntFromRange(RangeValues rangeValues, {int step = 1}) {
   final random = Random();

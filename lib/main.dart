@@ -9,7 +9,7 @@ import 'package:lineup/screens/match_info_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
 import 'package:lineup/screens/single_filter_screen.dart';
 
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'screens/position_screen.dart';
 

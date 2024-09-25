@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:lineup/screens/lineup_screen.dart';
 import 'package:lineup/screens/single_filter_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:lineup/widgets/cards/game_mode_card.dart';
 
 class HomeView extends StatelessWidget {

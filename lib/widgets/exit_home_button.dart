@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/screens/home_screen.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 
 class ExitHomeButton extends StatelessWidget {
   const ExitHomeButton({super.key});

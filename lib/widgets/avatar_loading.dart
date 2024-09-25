@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lineup/util/avatars.dart';
+import 'package:lineup/utils/avatars.dart';
 import 'package:lineup/widgets/player_avatar.dart';
 
 class AvatarLoading extends StatefulWidget {

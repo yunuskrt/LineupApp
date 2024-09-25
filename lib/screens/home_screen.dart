@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lineup/util/colors.dart';
+import 'package:lineup/utils/colors.dart';
 import 'package:lineup/views/home_view.dart';
 import 'package:lineup/views/profile_view.dart';
 import 'package:lineup/views/settings_view.dart';
