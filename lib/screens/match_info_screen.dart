@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:lineup/models/match.dart';
 import 'package:http/http.dart' as http;
 import 'package:lineup/providers/filter_provider.dart';
+import 'package:lineup/providers/match_provider.dart';
+import 'package:lineup/screens/game_screen.dart';
 import 'package:lineup/utils/helpers.dart';
 import 'package:lineup/widgets/avatar_loading.dart';
 import 'package:lineup/widgets/cards/match_info_card.dart';
@@ -13,7 +15,7 @@ import 'package:lineup/utils/colors.dart';
 import 'package:provider/provider.dart';
 
 class MatchInfoScreen extends StatefulWidget {
-  static String routeName = '/match-info-screen';
+  static String routeName = '/match-info';
   const MatchInfoScreen({super.key});
 
   @override
@@ -64,7 +66,10 @@ class _MatchInfoScreenState extends State<MatchInfoScreen> {
                         alertSnackBar('Pick a team to play!', 'error');
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   } else {
-                    print('match will be saved to provider');
+                    Provider.of<MatchProvider>(context, listen: false)
+                        .setAll(snapshot.data!, selectedTeamKey);
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        GameScreen.routeName, (route) => false);
                   }
                 },
                 onTeamSelect: (team) {
@@ -76,7 +81,6 @@ class _MatchInfoScreenState extends State<MatchInfoScreen> {
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
-
             return const AvatarLoading();
           },
         ),

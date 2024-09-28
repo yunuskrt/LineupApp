@@ -1,26 +1,7 @@
-class PositionCoordinates {
-  double topPercentage;
-  double leftPercentage;
-
-  PositionCoordinates({
-    required this.topPercentage,
-    required this.leftPercentage,
-  });
-}
-
-Map<String, PositionCoordinates> positions = {
-  'GK': PositionCoordinates(topPercentage: 0.59, leftPercentage: 0.40),
-  'LCB': PositionCoordinates(topPercentage: 0.51, leftPercentage: 0.20),
-  'RCB': PositionCoordinates(topPercentage: 0.51, leftPercentage: 0.60),
-  'CB': PositionCoordinates(topPercentage: 0.51, leftPercentage: 0.40),
-};
-
-PositionCoordinates getCoordinates(String position) {
-  return positions[position]!;
-}
+import 'package:lineup/models/coordinates.dart';
 
 class Positions {
-  Map<String, String> positions = {
+  static const Map<String, String> coordsToPositions = {
     "top:80%;left:40%": "GK",
     "top:63%;left:52.5%": "RCB",
     "top:63%;left:40%": "CB",
@@ -84,5 +65,49 @@ class Positions {
     "top:3%;left:40%": "ST",
     "top:2%;left:50%": "RST",
     "top:2%;left:30%": "LST"
+  };
+  static Map<String, Coordinates> positionsToCoords = {
+    "GK": Coordinates(top: 430, left: 145),
+    "RCB": Coordinates(top: 385, left: 190),
+    "CB": Coordinates(top: 385, left: 145),
+    "LCB": Coordinates(top: 385, left: 100),
+    "RB": Coordinates(top: 365, left: 245),
+    "RQCB": Coordinates(top: 385, left: 230),
+    "LQCB": Coordinates(top: 385, left: 60),
+    "LB": Coordinates(top: 365, left: 45),
+    "RAB": Coordinates(top: 375, left: 250),
+    "LAB": Coordinates(top: 375, left: 40),
+    "RCDM": Coordinates(top: 285, left: 190),
+    "CDM": Coordinates(top: 285, left: 145),
+    "LCDM": Coordinates(top: 285, left: 100),
+    "RQCDM": Coordinates(top: 275, left: 230),
+    "LQCDM": Coordinates(top: 275, left: 60),
+    "CDMA": Coordinates(top: 265, left: 145),
+    "RCDMA": Coordinates(top: 260, left: 190),
+    "LCDMA": Coordinates(top: 260, left: 100),
+    "ACM": Coordinates(top: 255, left: 145),
+    "RQACM": Coordinates(top: 240, left: 230),
+    "RACM": Coordinates(top: 250, left: 190),
+    "LACM": Coordinates(top: 250, left: 100),
+    "LQACM": Coordinates(top: 240, left: 60),
+    "CM": Coordinates(top: 230, left: 145),
+    "RCM": Coordinates(top: 230, left: 190),
+    "LCM": Coordinates(top: 230, left: 100),
+    "RQCM": Coordinates(top: 230, left: 245),
+    "LQCM": Coordinates(top: 230, left: 45),
+    "RQCMA": Coordinates(top: 220, left: 230),
+    "LQCMA": Coordinates(top: 220, left: 60),
+    "RCMA": Coordinates(top: 220, left: 190),
+    "CAM": Coordinates(top: 150, left: 145),
+    "LCMA": Coordinates(top: 220, left: 100),
+    "RCAM": Coordinates(top: 150, left: 190),
+    "LCAM": Coordinates(top: 150, left: 100),
+    "RAM": Coordinates(top: 150, left: 230),
+    "LAM": Coordinates(top: 150, left: 60),
+    "RW": Coordinates(top: 90, left: 217.5),
+    "LW": Coordinates(top: 90, left: 72.5),
+    "ST": Coordinates(top: 55, left: 145),
+    "RST": Coordinates(top: 80, left: 190),
+    "LST": Coordinates(top: 80, left: 100)
   };
 }

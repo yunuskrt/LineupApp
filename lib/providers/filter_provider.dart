@@ -1,19 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class FilterProvider extends ChangeNotifier {
-//   String? _filter;
-//   String? get filter => _filter;
-
-//   void setFilter(String newFilter) {
-//     _filter = newFilter;
-//     notifyListeners();
-//   }
-
-//   void clearFilter() {
-//     _filter = null;
-//     notifyListeners();
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:lineup/models/filter.dart';
 

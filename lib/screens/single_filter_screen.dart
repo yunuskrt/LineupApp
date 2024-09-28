@@ -13,7 +13,7 @@ import 'package:lineup/widgets/range_filter.dart';
 import 'package:provider/provider.dart';
 
 class SingleFilterScreen extends StatefulWidget {
-  static String routeName = '/single-filter-screen';
+  static String routeName = '/single-filter';
   const SingleFilterScreen({super.key});
 
   @override
