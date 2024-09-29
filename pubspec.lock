@@ -219,6 +219,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.2"
+  remove_diacritic:
+    dependency: "direct main"
+    description:
+      name: remove_diacritic
+      sha256: "778912615e4584563590ae79e71398b9ea0a41d2dfc38b3ad888024cd4459b19"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -272,6 +280,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  string_similarity:
+    dependency: "direct main"
+    description:
+      name: string_similarity
+      sha256: b4b73ec3af3e4203504b136dfbcdbca29edea4eb373684811b76ded9f40a54b9
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   term_glyph:
     dependency: transitive
     description:

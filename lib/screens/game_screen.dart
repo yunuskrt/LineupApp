@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lineup/providers/match_provider.dart';
 import 'package:lineup/utils/colors.dart';
+import 'package:lineup/utils/helpers.dart';
 import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/game_appbar.dart';
 import 'package:lineup/widgets/inputs/guess_input.dart';
@@ -17,6 +18,24 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   final TextEditingController _playerInputController = TextEditingController();
+  Map<String, dynamic>? _searchData;
+  List<Map<String, dynamic>>? _players;
+  String? _lineup;
+
+  void _showPlayer(int index) {
+    setState(() {
+      _players![index]['show'] = true;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _searchData =
+        Provider.of<MatchProvider>(context, listen: false).getSearchData();
+    _players = _searchData?['first11'];
+    _lineup = _searchData?['lineup'];
+  }
 
   @override
   void dispose() {
@@ -26,11 +45,6 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final searchData =
-        Provider.of<MatchProvider>(context, listen: false).getSearchData();
-    final players = searchData?['first11'];
-    final lineup = searchData?['lineup'];
-
     return Consumer<MatchProvider>(
       builder: (context, data, child) => Scaffold(
         appBar: PreferredSize(
@@ -104,11 +118,11 @@ class _GameScreenState extends State<GameScreen> {
                   ],
                 ),
               ),
-              searchData == null
+              _searchData == null
                   ? const CircularProgressIndicator()
                   : LineupPitch(
-                      lineup: lineup!,
-                      players: players!,
+                      lineup: _lineup!,
+                      players: _players!,
                     ),
             ],
           ),
@@ -127,9 +141,21 @@ class _GameScreenState extends State<GameScreen> {
               ElevatedButton(
                 onPressed: () {
                   String text = _playerInputController.text;
-                  print(text);
+                  if (text.isEmpty) {
+                    final snackBar =
+                        alertSnackBar('Guess can not be empty!', 'warning');
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  } else if (_players != null) {
+                    int? index = searchPlayer(_players!, text);
+                    if (index != null) {
+                      _showPlayer(index);
+                    } else {
+                      final snackBar =
+                          alertSnackBar('Player not found!', 'error');
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  }
                   _playerInputController.clear();
-                  print(searchData);
                 },
                 style: ButtonStyle(
                   backgroundColor:
