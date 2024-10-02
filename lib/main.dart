@@ -8,6 +8,7 @@ import 'package:lineup/screens/join_room_screen.dart';
 import 'package:lineup/screens/match_info_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
 import 'package:lineup/screens/single_filter_screen.dart';
+import 'package:lineup/screens/splash_screen.dart';
 
 import 'package:lineup/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.primaryLight,
       ),
       routes: {
+        SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         CreateRoomScreen.routeName: (context) => const CreateRoomScreen(),
         JoinRoomScreen.routeName: (context) => const JoinRoomScreen(),
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
         MatchInfoScreen.routeName: (context) => const MatchInfoScreen(),
         GameScreen.routeName: (context) => const GameScreen(),
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
