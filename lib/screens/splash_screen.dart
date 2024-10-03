@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lineup/screens/home_screen.dart';
 import 'package:lineup/utils/colors.dart';
+import 'package:lineup/widgets/logo_animation.dart';
 
 class SplashScreen extends StatefulWidget {
   static String routeName = '/splash';
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future<void>.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 3),
       () {
         Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
       },
@@ -25,22 +25,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.primary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              'assets/lineup.svg',
-              width: 200,
-              height: 200,
-              colorFilter: const ColorFilter.mode(
-                AppColors.primaryLight,
-                BlendMode.srcIn,
-              ),
-            ),
-            const Text(
+            LogoAnimation(),
+            Text(
               'LINEUP',
               style: TextStyle(
                 letterSpacing: 12,
