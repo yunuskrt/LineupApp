@@ -202,11 +202,9 @@ class _SingleFilterScreenState extends State<SingleFilterScreen> {
                     season: season,
                     round: round,
                   );
-                  // print(_filter.toJson());
                   Provider.of<FilterProvider>(context, listen: false)
                       .setFilter(filter);
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, MatchInfoScreen.routeName, (route) => false);
+                  Navigator.pushNamed(context, MatchInfoScreen.routeName);
                 },
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(

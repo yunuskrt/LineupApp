@@ -7,9 +7,9 @@ import 'package:lineup/providers/filter_provider.dart';
 import 'package:lineup/providers/match_provider.dart';
 import 'package:lineup/screens/game_screen.dart';
 import 'package:lineup/utils/helpers.dart';
+import 'package:lineup/views/not_found_view.dart';
 import 'package:lineup/widgets/avatar_loading.dart';
 import 'package:lineup/widgets/cards/match_info_card.dart';
-import 'package:lineup/widgets/exit_home_button.dart';
 import 'package:lineup/widgets/lineup_title.dart';
 import 'package:lineup/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -79,13 +79,12 @@ class _MatchInfoScreenState extends State<MatchInfoScreen> {
                 },
               );
             } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
+              return const NotFoundView();
             }
             return const AvatarLoading();
           },
         ),
       ),
-      floatingActionButton: const ExitHomeButton(),
     );
   }
 }

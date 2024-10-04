@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:lineup/screens/lineup_screen.dart';
 import 'package:lineup/screens/single_filter_screen.dart';
 import 'package:lineup/screens/multiple_menu_screen.dart';
 import 'package:lineup/utils/colors.dart';
